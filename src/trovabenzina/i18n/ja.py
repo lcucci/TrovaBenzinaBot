@@ -47,6 +47,7 @@ TRANSLATIONS = {
     "italy_only": "⚠️ 検索はイタリア国内のみ利用可能です！\n\nイタリアの住所を入力するか、位置情報を送信してください。",
     "processing_search": "検索中です。🔍",
     "please_wait": "処理中です。少々お待ちください。⏳",
+    "search_temporarily_unavailable": "⚠️ サービスは一時的に利用できません。\n\nしばらくしてからもう一度お試しください。",
     "no_stations": "❌ スタンドが見つかりませんでした",
     "area_label": "{radius} km 圏内のスタンド",
     "stations_analyzed": "件のスタンドを分析",

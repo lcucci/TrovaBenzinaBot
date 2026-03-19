@@ -47,6 +47,7 @@ TRANSLATIONS = {
     "italy_only": "⚠️ Search is only available in Italy!\n\nType an Italian address or send your location.",
     "processing_search": "Search in progress...🔍",
     "please_wait": "Working on it, please wait...⏳",
+    "search_temporarily_unavailable": "⚠️ Service temporarily unavailable!\n\nPlease try again later.",
     "no_stations": "❌ No stations found",
     "area_label": "Stations within {radius} km",
     "stations_analyzed": "stations analyzed",

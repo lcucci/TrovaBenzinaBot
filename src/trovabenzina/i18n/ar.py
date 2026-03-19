@@ -47,6 +47,7 @@ TRANSLATIONS = {
     "italy_only": "⚠️ البحث متاح فقط في إيطاليا!\n\nأدخل عنوانًا في إيطاليا أو أرسل موقعك.",
     "processing_search": "جارٍ البحث...🔍",
     "please_wait": "جارٍ العمل، يرجى الانتظار...⏳",
+    "search_temporarily_unavailable": "⚠️ الخدمة غير متاحة مؤقتاً!\n\nيرجى المحاولة مرة أخرى لاحقاً.",
     "no_stations": "❌ لم يتم العثور على محطات",
     "area_label": "محطات ضمن نطاق {radius} كم",
     "stations_analyzed": "محطات مُحلّلة",
