@@ -3,7 +3,7 @@ from typing import Optional
 
 import aiohttp
 
-from trovabenzina.config import MISE_DETAIL_URL
+from trovabenzina.config import MISE_DETAIL_URL, MISE_TIMEOUT_SECONDS
 
 __all__ = ["get_station_address"]
 
@@ -22,7 +22,7 @@ async def get_station_address(station_id: int) -> Optional[str]:
     url = MISE_DETAIL_URL.format(id=station_id)
 
     try:
-        timeout = aiohttp.ClientTimeout(total=10)
+        timeout = aiohttp.ClientTimeout(total=MISE_TIMEOUT_SECONDS)
         async with aiohttp.ClientSession(timeout=timeout) as session:
             async with session.get(url) as resp:
                 if resp.status != 200:

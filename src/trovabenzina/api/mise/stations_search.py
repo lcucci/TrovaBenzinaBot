@@ -3,7 +3,7 @@ from typing import Any, Dict, Optional
 
 import aiohttp
 
-from trovabenzina.config import MISE_SEARCH_URL
+from trovabenzina.config import MISE_SEARCH_URL, MISE_TIMEOUT_SECONDS
 
 __all__ = ["search_stations"]
 
@@ -38,7 +38,7 @@ async def search_stations(
     }
 
     try:
-        timeout = aiohttp.ClientTimeout(total=10)
+        timeout = aiohttp.ClientTimeout(total=MISE_TIMEOUT_SECONDS)
         async with aiohttp.ClientSession(timeout=timeout) as session:
             async with session.post(MISE_SEARCH_URL, json=payload) as resp:
                 if resp.status != 200:
