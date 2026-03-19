@@ -31,5 +31,11 @@ async def get_station_address(station_id: int) -> Optional[str]:
                 data = await resp.json(content_type=None)
                 return data.get("address") if isinstance(data, dict) else None
     except Exception as exc:
-        log.warning("Error fetching MISE detail for station %s: %s", station_id, exc)
+        log.exception(
+            "Error fetching MISE detail for station %s (%s) url=%s",
+            station_id,
+            type(exc).__name__,
+            url,
+        )
         return None
+
