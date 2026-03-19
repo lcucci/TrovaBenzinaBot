@@ -34,6 +34,7 @@ MISE_DETAIL_URL = os.getenv(
     "MISE_DETAIL_URL",
     "https://carburanti.mise.gov.it/ospzApi/registry/servicearea/{id}"
 )
+MISE_TIMEOUT_SECONDS = float(os.getenv("MISE_TIMEOUT_SECONDS", "30"))
 
 # Google Maps Geocoding API endpoint
 MAPS_GEOCODING_URL = os.getenv(

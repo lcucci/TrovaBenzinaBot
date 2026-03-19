@@ -47,6 +47,7 @@ TRANSLATIONS = {
     "italy_only": "⚠️ Die Suche ist nur in Italien verfügbar!\n\nGib eine italienische Adresse ein oder sende deinen Standort.",
     "processing_search": "Suche läuft.🔍",
     "please_wait": "Vorgang läuft, bitte einen Moment warten.⏳",
+    "search_temporarily_unavailable": "⚠️ Dienst vorübergehend nicht verfügbar!\n\nBitte versuche es später erneut.",
     "no_stations": "❌ Keine Tankstellen gefunden",
     "area_label": "Tankstellen im Umkreis von {radius} km",
     "stations_analyzed": "Tankstellen analysiert",

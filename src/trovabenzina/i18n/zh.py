@@ -47,6 +47,7 @@ TRANSLATIONS = {
     "italy_only": "⚠️ 搜索仅限意大利！\n\n请输入意大利地址或发送你的位置。",
     "processing_search": "正在搜索。🔍",
     "please_wait": "正在处理，请稍候。⏳",
+    "search_temporarily_unavailable": "⚠️ 服务暂时不可用！\n\n请稍后再试。",
     "no_stations": "❌ 未找到加油站",
     "area_label": "半径 {radius} 公里内的加油站",
     "stations_analyzed": "个加油站已分析",

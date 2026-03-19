@@ -214,11 +214,17 @@ async def run_search(
     ft = f"{fuel_code}-x"
 
     res = await search_stations(lat, lng, radius_km, ft)
-    stations = res.get("results", []) if res else []
-    num_stations = len(stations)
 
     # Clear "processing" toast if any
     await _clear_processing_toast(ctx, msg_obj.chat.id)
+
+    if res is None:
+        await msg_obj.reply_text(t("search_temporarily_unavailable", lang))
+        await save_search(uid, fuel_code, radius_km, 0, None, None)
+        return
+
+    stations = res.get("results", [])
+    num_stations = len(stations)
 
     # Filter by fuelId and select the price candidate per station
     filtered = []

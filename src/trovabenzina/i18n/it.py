@@ -47,6 +47,7 @@ TRANSLATIONS = {
     "italy_only": "⚠️ La ricerca è disponibile solo in Italia!\n\nDigita un indirizzo italiano oppure invia la tua posizione.",
     "processing_search": "Ricerca in corso...🔍",
     "please_wait": "Operazione in corso, attendi un attimo...⏳",
+    "search_temporarily_unavailable": "⚠️ Servizio momentaneamente non disponibile!\n\nPer favore riprova più tardi.",
     "no_stations": "❌ Nessun distributore trovato",
     "area_label": "Distributori nel raggio di {radius} km",
     "stations_analyzed": "stazioni analizzate",
