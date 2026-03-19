@@ -47,5 +47,10 @@ async def search_stations(
                 # MISE may reply with text/plain; ignore content-type to parse JSON safely.
                 return await resp.json(content_type=None)
     except Exception as exc:
-        log.warning("MISE search error: %s", exc)
+        log.exception(
+            "MISE search error (%s) url=%s payload=%s",
+            type(exc).__name__,
+            MISE_SEARCH_URL,
+            payload,
+        )
         return None
