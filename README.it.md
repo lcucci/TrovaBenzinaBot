@@ -20,7 +20,6 @@ Bot Telegram che permette agli utenti di trovare i distributori di carburante pi
 * Telegram Bot API (`python-telegram-bot[webhooks]==22.2`)
 * Framework web: `aiohttp==3.10.11` per la gestione dei webhook
 * Driver database: `asyncpg>=0.27.0` per PostgreSQL
-* Scheduling: `APScheduler==3.10.4`
 * ORM e supporto async: `SQLAlchemy[asyncio]>=2.0.0`
 * Operazioni su file: `aiofiles~=24.1.0`
 
@@ -43,7 +42,7 @@ come [@trovabenzinabot](https://t.me/trovabenzinabot).
 │   └── trovabenzina/
 │       ├── api/             # Integrazioni con API esterne (Google Maps, MISE)
 │       ├── config/          # Gestione configurazioni e segreti
-│       ├── core/            # Avvio del bot e scheduler
+│       ├── core/            # Avvio del bot e runner operativi
 │       ├── db/              # Accesso e sincronizzazione database
 │       ├── handlers/        # Gestori dei comandi e conversazioni
 │       ├── i18n/            # Traduzioni multilingua

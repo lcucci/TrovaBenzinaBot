@@ -24,11 +24,12 @@ from ..handlers import (
     search_handler,
     radius_callback_handler,
     statistics_handler,
+    broadcast_handler,
     handle_unknown_command,
 )
 from ..utils import setup_logging, describe
 
-KNOWN_CMDS_RE = r"^/(start|search|profile|statistics|help)(?:@\w+)?(?:\s|$)"
+KNOWN_CMDS_RE = r"^/(start|search|profile|statistics|help|broadcast)(?:@\w+)?(?:\s|$)"
 
 # Configure logging (level picked up inside setup_logging if you wired env there)
 setup_logging()
@@ -69,6 +70,7 @@ def main() -> None:
 
     # Handlers
     app.add_handler(start_handler)  # /start
+    app.add_handler(broadcast_handler)  # /broadcast (admin)
     for handler in statistics_handler:  # /statistics
         app.add_handler(handler)
     app.add_handler(help_handler)  # /help

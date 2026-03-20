@@ -4,6 +4,11 @@ Expose high-level repository functions so callers can do:
     from trovabenzina.db.repositories import get_user, save_search
 """
 
+from .broadcast_repository import (
+    claim_pending_broadcasts,
+    finalize_broadcast_message,
+    get_broadcast_recipient_tg_ids,
+)
 from .fuel_repository import (
     get_fuel_map,
     get_fuels_by_ids_map,
@@ -28,6 +33,9 @@ from .user_repository import (
 )
 
 __all__ = [
+    "claim_pending_broadcasts",
+    "finalize_broadcast_message",
+    "get_broadcast_recipient_tg_ids",
     "get_fuel_map",
     "get_fuels_by_ids_map",
     "get_uom_by_code",
