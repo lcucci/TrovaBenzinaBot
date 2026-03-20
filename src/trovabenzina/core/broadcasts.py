@@ -6,6 +6,7 @@ import asyncio
 import logging
 from typing import Optional
 
+from telegram.constants import ParseMode
 from telegram.error import RetryAfter, TelegramError
 from telegram.ext import Application
 
@@ -23,14 +24,24 @@ def _format_exception(exc: Exception) -> str:
     return message or exc.__class__.__name__
 
 
+def _normalize_broadcast_message_text(message_text: str) -> str:
+    """Convert escaped newlines from DB content into real line breaks."""
+    return (message_text or "").replace("\\n", "\n")
+
+
 async def _send_broadcast_message(
         application: Application,
         tg_id: int,
         message_text: str,
 ) -> tuple[bool, Optional[str]]:
     """Send one broadcast message, retrying once on Telegram rate limits."""
+    normalized_message_text = _normalize_broadcast_message_text(message_text)
     try:
-        await application.bot.send_message(chat_id=tg_id, text=message_text)
+        await application.bot.send_message(
+            chat_id=tg_id,
+            text=normalized_message_text,
+            parse_mode=ParseMode.HTML,
+        )
         return True, None
     except RetryAfter as exc:
         retry_after = getattr(exc, "retry_after", 1)
@@ -46,7 +57,11 @@ async def _send_broadcast_message(
         )
         await asyncio.sleep(retry_delay)
         try:
-            await application.bot.send_message(chat_id=tg_id, text=message_text)
+            await application.bot.send_message(
+                chat_id=tg_id,
+                text=normalized_message_text,
+                parse_mode=ParseMode.HTML,
+            )
             return True, None
         except TelegramError as retry_exc:
             return False, _format_exception(retry_exc)
