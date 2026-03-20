@@ -18,6 +18,10 @@ WEBHOOK_PATH = os.getenv("WEBHOOK_PATH", "webhook")
 # Logging level
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
 
+# Telegram admin allowed to trigger manual broadcast delivery
+_BROADCAST_ADMIN_TG_ID = os.getenv("BROADCAST_ADMIN_TG_ID", "").strip()
+BROADCAST_ADMIN_TG_ID = int(_BROADCAST_ADMIN_TG_ID) if _BROADCAST_ADMIN_TG_ID else 0
+
 # Default fallback language
 DEFAULT_LANGUAGE = "it"
 

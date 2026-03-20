@@ -6,6 +6,7 @@ Usage:
 """
 
 from .base import Base
+from .broadcast_message import BroadcastMessage
 from .fuel import Fuel
 from .geocache import GeoCache
 from .language import Language
@@ -19,6 +20,7 @@ __all__ = [
     "Base",
     "TimestampMixin",
     "CodeNameMixin",
+    "BroadcastMessage",
     "Fuel",
     "Language",
     "User",

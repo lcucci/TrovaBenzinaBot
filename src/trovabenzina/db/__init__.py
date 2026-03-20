@@ -9,6 +9,7 @@ Expose:
 # Models
 from .models import (
     Base,
+    BroadcastMessage,
     TimestampMixin,
     CodeNameMixin,
     Fuel,
@@ -21,6 +22,10 @@ from .models import (
 )
 # Repository functions (instead of legacy crud)
 from .repositories import (
+    # broadcasts
+    claim_pending_broadcasts,
+    finalize_broadcast_message,
+    get_broadcast_recipient_tg_ids,
     # fuels
     get_fuel_map,
     get_fuels_by_ids_map,
@@ -55,6 +60,7 @@ from .sync import sync_config_tables
 __all__ = [
     # Models/mixins
     "Base",
+    "BroadcastMessage",
     "TimestampMixin",
     "CodeNameMixin",
     "Fuel",
@@ -69,6 +75,9 @@ __all__ = [
     "AsyncSession",
     "init_db",
     # Repositories
+    "claim_pending_broadcasts",
+    "finalize_broadcast_message",
+    "get_broadcast_recipient_tg_ids",
     "get_fuel_map",
     "get_fuels_by_ids_map",
     "get_uom_by_code",
