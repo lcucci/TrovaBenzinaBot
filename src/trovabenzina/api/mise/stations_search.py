@@ -45,7 +45,11 @@ async def search_stations(
                     log.warning("MISE search failed (status=%s) payload=%s", resp.status, payload)
                     return None
                 # MISE may reply with text/plain; ignore content-type to parse JSON safely.
-                return await resp.json(content_type=None)
+                data = await resp.json(content_type=None)
+                if not isinstance(data, dict) or not isinstance(data.get("results"), list):
+                    log.warning("MISE search returned an invalid payload: %s", data)
+                    return None
+                return data
     except Exception as exc:
         log.exception(
             "MISE search error (%s) url=%s payload=%s",
