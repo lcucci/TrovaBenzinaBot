@@ -7,9 +7,6 @@ aiohttp==3.10.11
 # Database driver
 asyncpg>=0.27.0
 
-# Scheduling
-APScheduler==3.10.4
-
 # ORM & async support
 SQLAlchemy[asyncio]>=2.0.0
 

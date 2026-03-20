@@ -19,7 +19,6 @@ Telegram bot that allows users to find the cheapest fuel stations nearby in Ital
 * Telegram Bot API (`python-telegram-bot[webhooks]==22.2`)
 * Web framework: `aiohttp==3.10.11` for webhook handling
 * Database driver: `asyncpg>=0.27.0` for PostgreSQL
-* Scheduling: `APScheduler==3.10.4`
 * ORM & async support: `SQLAlchemy[asyncio]>=2.0.0`
 * File operations: `aiofiles~=24.1.0`
 
@@ -42,7 +41,7 @@ as [@trovabenzinabot](https://t.me/trovabenzinabot).
 │   └── trovabenzina/
 │       ├── api/             # External API integrations (Google Maps, MISE)
 │       ├── config/          # Configuration and secret management
-│       ├── core/            # Bot initialization and scheduler
+│       ├── core/            # Bot initialization and operational runners
 │       ├── db/              # Database access and synchronization
 │       ├── handlers/        # Command and conversation handlers
 │       ├── i18n/            # Multilingual translation files
