@@ -40,7 +40,12 @@ TRANSLATIONS = {
     "fuel_updated": "✅ Топливо успешно обновлено!",
 
     # ─────────── /search ───────────
+    "choose_search_mode": "Vyberite tip poiska.",
+    "btn_search_zone": "Ryadom s tochkoy 📌",
+    "btn_search_route": "Po marshrutu 🛣️",
     "ask_location": "Введите адрес или отправьте свою геопозицию 📍",
+    "ask_route_origin": "Vvedite adres otpravleniya.",
+    "ask_route_destination": "Vvedite adres pribytiya.",
     "send_location": "Отправить геопозицию (GPS) 🌍",
     "geocode_cap_reached": "⚠️ Распознавание адресов временно недоступно!\n\nПовторите попытку позже или отправьте свою геопозицию.",
     "invalid_address": "⚠️ Недопустимый адрес!\n\nВведите другой адрес или отправьте свою геопозицию.",
@@ -52,6 +57,8 @@ TRANSLATIONS = {
     "area_label": "Заправки в радиусе {radius} км",
     "stations_analyzed": "станций проанализировано",
     "average_zone_price": "Средняя цена {fuel_name} в зоне",
+    "route_label": "Zapravki po marshrutu",
+    "average_route_price": "Srednyaya tsena {fuel_name} po marshrutu",
     "address": "Адрес",
     "no_address": "-",
     "price": "Цена",

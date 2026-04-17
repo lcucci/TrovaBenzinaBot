@@ -40,7 +40,12 @@ TRANSLATIONS = {
     "fuel_updated": "✅ 燃料を更新しました！",
 
     # ─────────── /search ───────────
+    "choose_search_mode": "検索の種類を選択してください。",
+    "btn_search_zone": "地点の周辺 📌",
+    "btn_search_route": "ルート沿い 🛣️",
     "ask_location": "住所を入力するか、位置情報を送信してください 📍",
+    "ask_route_origin": "出発地の住所を入力してください。",
+    "ask_route_destination": "到着地の住所を入力してください。",
     "send_location": "GPS 位置情報を送信 🌍",
     "geocode_cap_reached": "⚠️ 現在、住所の認識は利用できません！\n\n後でもう一度お試しいただくか、位置情報を送信してください。",
     "invalid_address": "⚠️ 無効な住所です！\n\n別の住所を入力するか、位置情報を送信してください。",
@@ -52,6 +57,8 @@ TRANSLATIONS = {
     "area_label": "{radius} km 圏内のスタンド",
     "stations_analyzed": "件のスタンドを分析",
     "average_zone_price": "エリアの {fuel_name} 平均価格",
+    "route_label": "ルート沿いのスタンド",
+    "average_route_price": "ルート沿いの{fuel_name}平均価格",
     "address": "住所",
     "no_address": "-",
     "price": "価格",

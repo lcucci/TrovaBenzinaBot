@@ -1,12 +1,12 @@
-"""Centralized conversation state IDs for all handlers.
-
-Keeping the IDs in a single module guarantees uniqueness across the bot.
-"""
+"""Centralized conversation state IDs for all handlers."""
 
 __all__ = [
     "STEP_START_LANGUAGE",
     "STEP_START_FUEL",
+    "STEP_SEARCH_MODE",
     "STEP_SEARCH_LOCATION",
+    "STEP_SEARCH_ROUTE_ORIGIN",
+    "STEP_SEARCH_ROUTE_DESTINATION",
     "STEP_PROFILE_MENU",
     "STEP_PROFILE_LANGUAGE",
     "STEP_PROFILE_FUEL",
@@ -14,12 +14,15 @@ __all__ = [
 
 (
     # /start flow
-    STEP_START_LANGUAGE,  # 0 – choose language
-    STEP_START_FUEL,  # 1 – choose fuel
+    STEP_START_LANGUAGE,
+    STEP_START_FUEL,
     # /search flow
-    STEP_SEARCH_LOCATION,  # 2 – ask location or address
+    STEP_SEARCH_MODE,
+    STEP_SEARCH_LOCATION,
+    STEP_SEARCH_ROUTE_ORIGIN,
+    STEP_SEARCH_ROUTE_DESTINATION,
     # /profile flow
-    STEP_PROFILE_MENU,  # 3 – show profile summary
-    STEP_PROFILE_LANGUAGE,  # 4 – choose new language
-    STEP_PROFILE_FUEL,  # 5 – choose new fuel
-) = range(6)
+    STEP_PROFILE_MENU,
+    STEP_PROFILE_LANGUAGE,
+    STEP_PROFILE_FUEL,
+) = range(9)

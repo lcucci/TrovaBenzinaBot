@@ -40,7 +40,12 @@ TRANSLATIONS = {
     "fuel_updated": "✅ ¡Combustible actualizado correctamente!",
 
     # ─────────── /search ───────────
+    "choose_search_mode": "Elige el tipo de busqueda.",
+    "btn_search_zone": "Cerca de un punto 📌",
+    "btn_search_route": "A lo largo de una ruta 🛣️",
     "ask_location": "Escribe una dirección o envía tu ubicación 📍",
+    "ask_route_origin": "Escribe la direccion de salida.",
+    "ask_route_destination": "Escribe la direccion de llegada.",
     "send_location": "Enviar ubicación GPS 🌍",
     "geocode_cap_reached": "⚠️ ¡El reconocimiento de direcciones no está disponible por el momento!\n\nVuelve a intentarlo más tarde, o envía tu ubicación.",
     "invalid_address": "⚠️ ¡Dirección no válida!\n\nIntroduce otra dirección o envía tu ubicación.",
@@ -52,6 +57,8 @@ TRANSLATIONS = {
     "area_label": "Estaciones en un radio de {radius} km",
     "stations_analyzed": "estaciones analizadas",
     "average_zone_price": "Precio medio de {fuel_name} en la zona",
+    "route_label": "Estaciones a lo largo de la ruta",
+    "average_route_price": "Precio medio de {fuel_name} a lo largo de la ruta",
     "address": "Dirección",
     "no_address": "-",
     "price": "Precio",
