@@ -40,7 +40,12 @@ TRANSLATIONS = {
     "fuel_updated": "✅ تم تحديث الوقود بنجاح!",
 
     # ─────────── /search ───────────
+    "choose_search_mode": "اختر نوع البحث.",
+    "btn_search_zone": "بالقرب من نقطة 📌",
+    "btn_search_route": "على طول مسار 🛣️",
     "ask_location": "اكتب عنوانًا أو أرسل موقعك 📍",
+    "ask_route_origin": "اكتب عنوان الانطلاق.",
+    "ask_route_destination": "اكتب عنوان الوصول.",
     "send_location": "إرسال الموقع عبر GPS 🌍",
     "geocode_cap_reached": "⚠️ التعرّف على العناوين غير متاح حاليًا!\n\nيرجى المحاولة لاحقًا أو إرسال موقعك.",
     "invalid_address": "⚠️ عنوان غير صالح!\n\nأدخل عنوانًا آخر أو أرسل موقعك.",
@@ -52,6 +57,8 @@ TRANSLATIONS = {
     "area_label": "محطات ضمن نطاق {radius} كم",
     "stations_analyzed": "محطات مُحلّلة",
     "average_zone_price": "متوسط سعر {fuel_name} في المنطقة",
+    "route_label": "محطات على طول المسار",
+    "average_route_price": "متوسط سعر {fuel_name} على طول المسار",
     "address": "العنوان",
     "no_address": "-",
     "price": "السعر",

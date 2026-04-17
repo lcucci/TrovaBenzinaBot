@@ -40,7 +40,12 @@ TRANSLATIONS = {
     "fuel_updated": "✅ 燃料已更新！",
 
     # ─────────── /search ───────────
+    "choose_search_mode": "请选择搜索类型。",
+    "btn_search_zone": "某个地点附近 📌",
+    "btn_search_route": "沿路线 🛣️",
     "ask_location": "输入地址或发送你的位置 📍",
+    "ask_route_origin": "请输入出发地址。",
+    "ask_route_destination": "请输入到达地址。",
     "send_location": "发送 GPS 位置 🌍",
     "geocode_cap_reached": "⚠️ 目前无法识别地址！\n\n请稍后再试，或者发送你的位置。",
     "invalid_address": "⚠️ 地址无效！\n\n请输入其他地址或发送你的位置。",
@@ -52,6 +57,8 @@ TRANSLATIONS = {
     "area_label": "半径 {radius} 公里内的加油站",
     "stations_analyzed": "个加油站已分析",
     "average_zone_price": "区域 {fuel_name} 平均价格",
+    "route_label": "路线沿途的加油站",
+    "average_route_price": "路线沿途的{fuel_name}平均价格",
     "address": "地址",
     "no_address": "-",
     "price": "价格",

@@ -5,7 +5,7 @@ from __future__ import annotations
 from decimal import Decimal
 from typing import Optional, TYPE_CHECKING
 
-from sqlalchemy import Numeric, ForeignKey, Integer, CheckConstraint
+from sqlalchemy import Numeric, ForeignKey, Integer, CheckConstraint, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base
@@ -23,8 +23,9 @@ class Search(TimestampMixin, Base):
 
     __tablename__ = "searches"
     __table_args__ = (
-        CheckConstraint("radius >= 0", name="ck_search_radius_nonneg"),
+        CheckConstraint("(radius IS NULL OR radius >= 0)", name="ck_search_radius_nonneg"),
         CheckConstraint("num_stations >= 0", name="ck_search_num_stations_nonneg"),
+        CheckConstraint("search_type IN ('zone', 'route')", name="ck_search_type_valid"),
         CheckConstraint(
             "(price_avg IS NULL OR price_min IS NULL OR price_avg >= price_min)",
             name="ck_search_price_avg_gte_min",
@@ -36,8 +37,9 @@ class Search(TimestampMixin, Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id"), nullable=False)
     fuel_id: Mapped[int] = mapped_column(ForeignKey("dom_fuels.id"), nullable=False)
+    search_type: Mapped[str] = mapped_column(String(10), nullable=False, server_default="zone")
 
-    radius: Mapped[float] = mapped_column(nullable=False)
+    radius: Mapped[Optional[float]] = mapped_column(nullable=True)
     num_stations: Mapped[int] = mapped_column(Integer, nullable=False)
     price_avg: Mapped[Optional[Decimal]] = mapped_column(Numeric(10, 4), nullable=True)
     price_min: Mapped[Optional[Decimal]] = mapped_column(Numeric(10, 4), nullable=True)
@@ -49,6 +51,6 @@ class Search(TimestampMixin, Base):
     def __repr__(self) -> str:
         return (
             f"Search(id={self.id}, user_id={self.user_id}, fuel_id={self.fuel_id}, "
-            f"radius={self.radius}, num_stations={self.num_stations}, "
+            f"search_type={self.search_type}, radius={self.radius}, num_stations={self.num_stations}, "
             f"price_avg={self.price_avg}, price_min={self.price_min})"
         )

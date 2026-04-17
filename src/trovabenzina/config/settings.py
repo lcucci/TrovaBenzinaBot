@@ -34,6 +34,10 @@ MISE_SEARCH_URL = os.getenv(
     "MISE_SEARCH_URL",
     "https://carburanti.mise.gov.it/ospzApi/search/zone"
 )
+MISE_ROUTE_SEARCH_URL = os.getenv(
+    "MISE_ROUTE_SEARCH_URL",
+    "https://carburanti.mise.gov.it/ospzApi/search/route"
+)
 MISE_DETAIL_URL = os.getenv(
     "MISE_DETAIL_URL",
     "https://carburanti.mise.gov.it/ospzApi/registry/servicearea/{id}"

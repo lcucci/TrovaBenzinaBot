@@ -1,23 +1,29 @@
 import asyncio
 import logging
+import sys
+from pathlib import Path
 
 from telegram.ext import ApplicationBuilder, MessageHandler, filters
 from telegram.request import HTTPXRequest
 
-from ..config import (
+# Allow running this file directly from the IDE without losing package context.
+if __package__ in (None, ""):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
+from trovabenzina.config import (
     BOT_TOKEN,
     TB_MODE,
     PORT,
     BASE_URL,
     WEBHOOK_PATH,
 )
-from ..db import (
+from trovabenzina.db import (
     init_db,
     sync_config_tables,
     get_fuel_map,
     get_language_map,
 )
-from ..handlers import (
+from trovabenzina.handlers import (
     start_handler,
     help_handler,
     profile_handler,
@@ -27,7 +33,7 @@ from ..handlers import (
     broadcast_handler,
     handle_unknown_command,
 )
-from ..utils import setup_logging, describe
+from trovabenzina.utils import setup_logging, describe
 
 KNOWN_CMDS_RE = r"^/(start|search|profile|statistics|help|broadcast)(?:@\w+)?(?:\s|$)"
 
@@ -102,7 +108,7 @@ def main() -> None:
         app.run_webhook(
             listen="0.0.0.0",
             port=port,
-            url_path=base_url,
+            url_path=path,
             webhook_url=webhook_url,
         )
     else:

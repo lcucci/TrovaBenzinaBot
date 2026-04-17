@@ -62,7 +62,7 @@ async def _execute_sql_scripts_dir(dir_path: Path) -> None:
 
     For each file:
         - Try to execute as a single statement.
-        - If it fails, fallback to a naive split and execute statements one-by-one.
+        - If it fails, retry in a fresh transaction with a naive statement split.
 
     Args:
         dir_path: Directory containing .sql files.
@@ -76,25 +76,25 @@ async def _execute_sql_scripts_dir(dir_path: Path) -> None:
         log.info("No SQL scripts to execute under: %s", dir_path)
         return
 
-    async with engine.begin() as conn:
-        for sql_file in sql_files:
-            raw = sql_file.read_text(encoding="utf-8").strip()
-            if not raw:
-                continue
+    for sql_file in sql_files:
+        raw = sql_file.read_text(encoding="utf-8").strip()
+        if not raw:
+            continue
 
-            try:
+        try:
+            async with engine.begin() as conn:
                 # Fast path: single-statement file
                 await conn.execute(text(raw))
-                log.info("Executed SQL script: %s", sql_file.name)
-            except Exception as e:
-                # Fallback: naive split into multiple statements
-                log.warning(
-                    "Single-statement execution failed for %s (%s). "
-                    "Falling back to naive split.",
-                    sql_file.name,
-                    e,
-                )
-                statements = _split_sql_naive(raw)
+            log.info("Executed SQL script: %s", sql_file.name)
+        except Exception as e:
+            log.warning(
+                "Single-statement execution failed for %s (%s). "
+                "Falling back to naive split.",
+                sql_file.name,
+                e,
+            )
+            statements = _split_sql_naive(raw)
+            async with engine.begin() as conn:
                 for stmt in statements:
                     try:
                         # `exec_driver_sql` bypasses SQLAlchemy SQL compiler
@@ -107,7 +107,7 @@ async def _execute_sql_scripts_dir(dir_path: Path) -> None:
                             inner,
                         )
                         raise
-                log.info("Executed SQL script (split): %s", sql_file.name)
+            log.info("Executed SQL script (split): %s", sql_file.name)
 
 
 async def init_db() -> None:
